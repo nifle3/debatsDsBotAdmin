@@ -11,7 +11,7 @@ class Theme:
 
     def __dict__(self):
         dict = {
-            "theme": self.dicord_id
+            "theme": self.theme
         }
 
         if self.id is not None:
