@@ -14,6 +14,6 @@ class TgConfig:
 
 @dataclass
 class Config:
-    environment : str 
+    environment : str
     mongo_config : MongoConfig
     tg_config : TgConfig

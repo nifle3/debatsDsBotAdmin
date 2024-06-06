@@ -1,8 +1,8 @@
-from config import Config, TgConfig, MongoConfig
 from os import getenv
+from config.config import Config, TgConfig, MongoConfig
 
 
-def init() -> Config:
+def init_config() -> Config:
     env = getenv("ENVIRONMENT")
     atlas_uri = getenv('ATLAS_URI')
     db_name = getenv('DB_NAME')

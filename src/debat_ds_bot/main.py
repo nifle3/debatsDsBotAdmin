@@ -1,11 +1,12 @@
 from dotenv import load_dotenv
-from config import init
+from config.init import init_config 
+from logger.init import init_log
 
 def main() -> None:
     load_dotenv(dotenv_path="./.env")
 
-    cfg = init()
-    log = logger()
+    cfg = init_config()
+    log = init_log(cfg.environment)
 
     db = mongo(cfg)
     bot = tg()
