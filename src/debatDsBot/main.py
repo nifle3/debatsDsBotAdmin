@@ -1,9 +1,10 @@
 from dotenv import load_dotenv
+from config import init
 
 def main() -> None:
     load_dotenv(dotenv_path="./.env")
 
-    cfg = config.init()
+    cfg = init()
     log = logger()
 
     db = mongo(cfg)
