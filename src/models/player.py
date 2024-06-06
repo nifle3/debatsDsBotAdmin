@@ -14,7 +14,7 @@ class Player:
     points : int
     most_played_teammete : str
 
-    def __dict__(self):
+    def to_document(self):
         dict = {
             "discord_id": self.dicord_id,
             "name": self.name,

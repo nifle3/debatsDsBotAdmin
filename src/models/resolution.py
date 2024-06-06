@@ -15,7 +15,7 @@ class Reolution:
     opposition_wins : int
     proopposition_wins : int
 
-    def __dict__(self):
+    def to_document(self):
         dict = {
             "discord_id": self.dicord_id,
             "themes": self.themes,

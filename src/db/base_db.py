@@ -12,10 +12,9 @@ class Db:
     def __enter__(self) -> AsyncIOMotorDatabase:
         db = self.client.get_database(self.db_name)
         logger.info("db initialize")
-        
+
         return db
-    
-    def __exit__(self):
+
+    def __exit__(self, reason, val, expection):
         self.client.close()
         logger.info("db client closed")
-    

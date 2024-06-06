@@ -5,11 +5,11 @@ from bson.objectid import ObjectId
 @dataclass
 class Theme:
     """Resolution's type"""
-    
+
     id : ObjectId
     theme : str
 
-    def __dict__(self):
+    def to_document(self):
         dict = {
             "theme": self.theme
         }
