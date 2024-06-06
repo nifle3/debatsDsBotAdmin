@@ -7,6 +7,8 @@ def init_log(env : str):
     function that setups loguru logger
     params:
         env : str - environment app. can be prod or debug
+    Returns:
+        None
     """
 
     logger.remove(0)
@@ -20,5 +22,3 @@ def init_log(env : str):
         case _:
             logger.add(stdout, format="{time} | {level} | {message}", level="DEBUG")
             logger.warning(f'environment type {env} is invalid. Apply default DEBUG')
-
-    return logger

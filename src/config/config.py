@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from collections.abc import Iterable
+from typing import List
 
 
 @dataclass
@@ -14,7 +14,7 @@ class TgConfig:
     """data class with config for tg bot"""
 
     token : str
-    admins : Iterable[str]
+    admins : List[str]
 
 @dataclass
 class Config:

@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from config.init import init_config
 from logger.init import init_log
+from db.db import Db
 
 
 def main() -> None:
@@ -9,11 +10,11 @@ def main() -> None:
     load_dotenv(dotenv_path="./.env")
 
     cfg = init_config()
-    log = init_log(cfg.environment)
+    init_log(cfg.environment)
 
-    db = mongo(cfg)
-    bot = tg()
-    bot.start()
+    with Db(cfg.mongo_config.atlas_uri, cfg.mongo_config.db_name) as db:
+        None
+        
 
 
 if __name__ == "__main__":

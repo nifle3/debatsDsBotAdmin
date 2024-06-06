@@ -11,6 +11,8 @@ def init_config() -> Config:
         DB_NAME - mongodb database name 
         TOKEN_BOT - just token from botfather
         ADMINS - split with , (for example nifle3,nifle3)
+    Returns:
+        config.config.Config
     """
 
     env = getenv("ENVIRONMENT")
