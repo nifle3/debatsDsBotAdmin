@@ -1,10 +1,10 @@
 from sys import stdout
-from loguru import logger, Logger
+from loguru import logger
 
 
-def init_log(env : str) -> Logger:
+def init_log(env : str):
     """
-    func for setting loguru logger
+    function that setups loguru logger
     params:
         env : str - environment app. can be prod or debug
     """

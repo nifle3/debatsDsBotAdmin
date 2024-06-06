@@ -3,6 +3,16 @@ from config.config import Config, TgConfig, MongoConfig
 
 
 def init_config() -> Config:
+    """
+    function that parses environments to config dataclass
+    environments:
+        ENVIRONMENT - must be prod or debug
+        ATLAS_URI - mongodb atlas connection string
+        DB_NAME - mongodb database name 
+        TOKEN_BOT - just token from botfather
+        ADMINS - split with , (for example nifle3,nifle3)
+    """
+
     env = getenv("ENVIRONMENT")
     atlas_uri = getenv('ATLAS_URI')
     db_name = getenv('DB_NAME')

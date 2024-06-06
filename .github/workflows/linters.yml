@@ -44,6 +44,6 @@ jobs:
         pip install -r requirements.txt
     - name: Analysing the code with Ruff
       run: |
-        pyruff check $(git ls-files '*.py')
+        ruff check $(git ls-files '*.py')
   
   
