@@ -1,4 +1,8 @@
+from dotenv import load_dotenv
+
 def main() -> None:
+    load_dotenv(dotenv_path="./.env")
+
     cfg = config.init()
     log = logger()
 
@@ -7,5 +11,5 @@ def main() -> None:
     bot.start()
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     main()
