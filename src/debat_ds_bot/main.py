@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from config.init import init_config 
 from logger.init import init_log
 
+
 def main() -> None:
     load_dotenv(dotenv_path="./.env")
 

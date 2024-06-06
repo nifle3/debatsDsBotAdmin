@@ -1,8 +1,14 @@
-from loguru import logger, Logger
 from sys import stdout
+from loguru import logger, Logger
 
 
 def init_log(env : str) -> Logger:
+    """
+    func for setting loguru logger
+    params:
+        env : str - environment app. can be prod or debug
+    """
+
     logger.remove(0)
 
     env = env.lower()
