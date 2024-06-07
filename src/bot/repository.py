@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 from collections.abc import Iterable
+from typing import List
+from bson.objectid import ObjectId
 from models.resolution import Resolution
 from models.player import Player
 from models.theme import Theme
@@ -17,7 +19,7 @@ class AbstractPlayerRepository(ABC):
         pass
 
     @abstractmethod
-    def get_one(self, id : str) -> Player:
+    def get_one(self, discord_id : str) -> Player:
         pass
 
     @abstractmethod
@@ -56,17 +58,25 @@ class AbstractResolutionRepository(ABC):
         pass
 
     @abstractmethod
-    def get(self) -> Iterable[Resolution]:
+    def get_skip_limit(self, skip : int, limit : int) -> Iterable[Resolution]:
         pass
 
     @abstractmethod
-    def get_one(self) -> Resolution:
+    def get_by_theme_skip_limit(self, theme : List[str], count : int, skip : int) -> Iterable[Resolution]:
+        pass
+    
+    @abstractmethod
+    async def get_by_title(self, title : str) -> Iterable[Resolution]:
         pass
 
     @abstractmethod
-    def delete(self, resolution : Resolution) -> bool:
+    def get_one(self, id : ObjectId) -> Resolution:
         pass
 
     @abstractmethod
-    def delete_theme(self, theme : str) -> bool:
+    def delete(self, id : ObjectId) -> bool:
+        pass
+
+    @abstractmethod
+    def delete_theme(self, theme : str, id : ObjectId) -> bool:
         pass

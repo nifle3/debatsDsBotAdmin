@@ -18,3 +18,10 @@ class Theme:
         }
 
         return dict
+    
+    @staticmethod
+    def from_document(doc : Dict[str, any]):
+        return Theme(
+            id=doc["_id"],
+            theme=doc["theme"]
+        )
