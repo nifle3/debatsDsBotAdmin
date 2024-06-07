@@ -7,7 +7,7 @@ from models.resolution import Resolution
 
 
 class ResolutionRepository(AbstractResolutionRepository):
-    """"""
+    """Mongodb repository for resolution collection"""
 
     COLLECTION_NAME = "resolution"
 
@@ -36,7 +36,9 @@ class ResolutionRepository(AbstractResolutionRepository):
 
         return result
 
-    async def get_by_theme_skip_limit(self, theme : List[str], skip : int, limit : int) -> Iterable[Resolution]:
+    async def get_by_theme_skip_limit(
+            self, theme : List[str], skip : int, limit : int
+            ) -> Iterable[Resolution]:
         result = list()
         cursor = self.collection.find({"themes": {"$all": theme}}).skip(skip).limit(limit)
 
@@ -54,12 +56,12 @@ class ResolutionRepository(AbstractResolutionRepository):
 
         return Resolution.from_document(result)
 
-    async def delete(self, id : ObjectId) -> bool:
+    async def delete(self, object_id : ObjectId) -> bool:
         result = await self.collection.delete_one({"_id": id})
 
         return result.acknowledged
 
-    async def delete_theme(self, theme : str, id : ObjectId) -> bool:
+    async def delete_theme(self, theme : str, object_id : ObjectId) -> bool:
         result = await self.collection.update_one({"_id": id}, {"$pull": {"themes": theme}})
 
         return result.acknowledged

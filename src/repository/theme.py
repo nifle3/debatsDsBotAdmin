@@ -5,7 +5,7 @@ from models.theme import Theme
 
 
 class ThemeRepository(AbstractThemeRepository):
-    """"""
+    """Mongodb repository for theme collection"""
 
     COLLECTION_NAME="theme"
 
