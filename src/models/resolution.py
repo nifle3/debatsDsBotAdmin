@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 
 
 @dataclass
-class Reolution:
+class Resolution:
     """Resolution for the debate game"""
 
     id : ObjectId
