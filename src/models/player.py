@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Dict
 from bson.objectid import ObjectId
 
 
@@ -14,7 +15,9 @@ class Player:
     points : int
     most_played_teammete : str
 
-    def to_document(self):
+    def to_document(self) -> Dict[str, any]:
+        """Func that casts player model to mongodb document"""
+
         dict = {
             "discord_id": self.dicord_id,
             "name": self.name,

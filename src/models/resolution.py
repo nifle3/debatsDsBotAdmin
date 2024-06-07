@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List
+from typing import List, Dict
 from bson.objectid import ObjectId
 
 
@@ -15,7 +15,9 @@ class Reolution:
     opposition_wins : int
     proopposition_wins : int
 
-    def to_document(self):
+    def to_document(self) -> Dict[str, any]:
+        """Func that casts resolution model to mongodb document"""
+
         dict = {
             "discord_id": self.dicord_id,
             "themes": self.themes,

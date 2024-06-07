@@ -15,6 +15,6 @@ class Db:
 
         return db
 
-    def __exit__(self, reason, val, expection):
+    def __exit__(self, *_):
         self.client.close()
         logger.info("db client closed")

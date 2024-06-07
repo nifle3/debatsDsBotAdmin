@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Dict
 from bson.objectid import ObjectId
 
 
@@ -9,7 +10,9 @@ class Theme:
     id : ObjectId
     theme : str
 
-    def to_document(self):
+    def to_document(self) -> Dict[str, any]:
+        """Func that casts theme model to mongodb document"""
+        
         dict = {
             "theme": self.theme
         }
