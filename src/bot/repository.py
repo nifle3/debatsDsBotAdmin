@@ -5,7 +5,7 @@ from models.player import Player
 from models.theme import Theme
 
 
-class PlayerRepository(ABC):
+class AbstractPlayerRepository(ABC):
     """Abstract respository pattern class for models.user.Player"""
    
     @abstractmethod
@@ -21,10 +21,10 @@ class PlayerRepository(ABC):
         pass
 
     @abstractmethod
-    def delete(self, player : Player) -> bool:
+    def delete(self, discord_id: str) -> bool:
         pass
 
-class ThemeRepository(ABC):
+class AbstractThemeRepository(ABC):
     """Abstract respository pattern class for models.theme.Theme"""
     
     @abstractmethod
@@ -44,7 +44,7 @@ class ThemeRepository(ABC):
         pass
 
 
-class ResolutionRepository(ABC):
+class AbstractResolutionRepository(ABC):
     """Abstract respository pattern class for models.resolution.Reslution"""
 
     @abstractmethod

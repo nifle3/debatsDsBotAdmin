@@ -28,7 +28,4 @@ class Resolution:
             "proopposition_wins": self.proopposition_wins
         }
 
-        if self.id is not None:
-            dict["_id"] = self.id
-
         return dict

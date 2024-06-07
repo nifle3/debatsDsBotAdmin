@@ -17,7 +17,4 @@ class Theme:
             "theme": self.theme
         }
 
-        if self.id is not None:
-            dict["_id"] = self.id
-
         return dict

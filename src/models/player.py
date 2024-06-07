@@ -27,7 +27,24 @@ class Player:
             "most_played_teammete": self.most_played_teammete,
         }
 
-        if self.id is not None:
-            dict["_id"] = self.id
-
         return dict
+    
+    @staticmethod
+    def from_document(doc : Dict[str, any]):
+        """
+        Creating model from mongodb document
+
+        RETURNS:
+            models.player.Player
+        """
+
+        return Player(
+            id=doc["_id"],
+            name=doc["name"],
+            play_count=doc["play_count"],
+            first_place_count=doc["first_place_count"],
+            points=doc["first_place_count"],
+            most_played_teammete=doc["most_played_teammete"]
+        )
+
+
