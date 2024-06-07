@@ -19,7 +19,7 @@ class Resolution:
         """Func that casts resolution model to mongodb document"""
 
         return {
-            "discord_id": self.dicord_id,
+            "id": self.id,
             "themes": self.themes,
             "title": self.title,
             "info_slide": self.info_slide,
@@ -30,6 +30,13 @@ class Resolution:
     
     @staticmethod
     def from_document(doc : Dict[str, any]):
+        """
+        Creating model from mongodb document
+
+        RETURNS:
+            models.resolution.Resolution
+        """
+
         return Resolution(
             id=doc["_id"],
             themes=doc["themes"],

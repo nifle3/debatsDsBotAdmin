@@ -9,7 +9,7 @@ from models.theme import Theme
 
 class AbstractPlayerRepository(ABC):
     """An abstract respository pattern class for models.user.Player"""
-   
+
     @abstractmethod
     async def update(self, player : Player) -> bool:
         """An abstract method that updates players fields by the player id : Object id"""
@@ -28,7 +28,7 @@ class AbstractPlayerRepository(ABC):
 
 class AbstractThemeRepository(ABC):
     """An  abstract respository pattern class for models.theme.Theme"""
-    
+
     @abstractmethod
     async def add(self, theme : Theme) -> bool:
         """An abstract method that adds a theme"""
@@ -66,7 +66,7 @@ class AbstractResolutionRepository(ABC):
         self, theme : List[str], count : int, skip : int
         ) -> Iterable[Resolution]:
         """An abstract method that givets limit resolution with theme start with skip"""
-    
+
     @abstractmethod
     async def get_by_title(self, title : str) -> Iterable[Resolution]:
         """An abstract method that gives a resolution by title"""

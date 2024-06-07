@@ -12,15 +12,22 @@ class Theme:
 
     def to_document(self) -> Dict[str, any]:
         """Func that casts theme model to mongodb document"""
-        
+
         dict = {
             "theme": self.theme
         }
 
         return dict
-    
+
     @staticmethod
     def from_document(doc : Dict[str, any]):
+        """
+        Creating model from mongodb document
+
+        RETURNS:
+            models.theme.Theme
+        """
+
         return Theme(
             id=doc["_id"],
             theme=doc["theme"]

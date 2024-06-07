@@ -27,7 +27,7 @@ class ResolutionRepository(AbstractResolutionRepository):
         return result.acknowledged
 
     async def get_skip_limit(self, skip : int, limit : int) -> Iterable[Resolution]:
-        result = list()
+        result = []
         cursor = self.collection.find().skip(skip).limit(limit)
 
         for document in await cursor.to_list():
@@ -39,7 +39,7 @@ class ResolutionRepository(AbstractResolutionRepository):
     async def get_by_theme_skip_limit(
             self, theme : List[str], skip : int, limit : int
             ) -> Iterable[Resolution]:
-        result = list()
+        result = []
         cursor = self.collection.find({"themes": {"$all": theme}}).skip(skip).limit(limit)
 
         for document in await cursor.to_list():
@@ -51,7 +51,7 @@ class ResolutionRepository(AbstractResolutionRepository):
     async def get_by_title(self, title : str) -> Iterable[Resolution]:
         raise NotImplementedError
 
-    async def get_one(self, id : ObjectId) -> Resolution:
+    async def get_one(self, object_id : ObjectId) -> Resolution:
         result = await self.collection.find_one({"_id": id})
 
         return Resolution.from_document(result)

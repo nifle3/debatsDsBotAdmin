@@ -18,7 +18,7 @@ class Player:
     def to_document(self) -> Dict[str, any]:
         """Func that casts player model to mongodb document"""
 
-        dict = {
+        return {
             "discord_id": self.dicord_id,
             "name": self.name,
             "play_count": self.play_count,
@@ -27,8 +27,6 @@ class Player:
             "most_played_teammete": self.most_played_teammete,
         }
 
-        return dict
-    
     @staticmethod
     def from_document(doc : Dict[str, any]):
         """
@@ -46,5 +44,3 @@ class Player:
             points=doc["first_place_count"],
             most_played_teammete=doc["most_played_teammete"]
         )
-
-
