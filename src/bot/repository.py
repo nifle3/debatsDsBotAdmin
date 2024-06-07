@@ -8,75 +8,110 @@ from models.theme import Theme
 
 
 class AbstractPlayerRepository(ABC):
-    """Abstract respository pattern class for models.user.Player"""
+    """An abstract respository pattern class for models.user.Player"""
    
     @abstractmethod
-    def update(self, player : Player) -> bool:
+    async def update(self, player : Player) -> bool:
+        """An abstract method that updates players fields by the player id : Object id"""
+
         pass
 
     @abstractmethod
-    def get(self) -> Iterable[Player]:
+    async def get(self) -> Iterable[Player]:
+        """An abstract method that gives all players"""
+
         pass
 
     @abstractmethod
-    def get_one(self, discord_id : str) -> Player:
+    async def get_one(self, discord_id : str) -> Player:
+        """An abstract method that gives one player by his discord id"""
+
         pass
 
     @abstractmethod
-    def delete(self, discord_id: str) -> bool:
+    async def delete(self, discord_id: str) -> bool:
+        """An abstract methd that deletes one player by his discord id"""
+
         pass
 
 class AbstractThemeRepository(ABC):
-    """Abstract respository pattern class for models.theme.Theme"""
+    """An  abstract respository pattern class for models.theme.Theme"""
     
     @abstractmethod
-    def add(self, theme : Theme) -> bool:
+    async def add(self, theme : Theme) -> bool:
+        """An abstract method that adds a theme"""
+
         pass
 
     @abstractmethod
-    def update(self, theme : Theme) -> bool:
+    async def update(self, theme : Theme) -> bool:
+        """An abstract method thaat updates theme by its id : ObjectId """
+
         pass
 
     @abstractmethod
-    def get(self) -> Iterable[Theme]:
+    async def get(self) -> Iterable[Theme]:
+        """An abstract method that gets all themes"""
+
         pass
 
     @abstractmethod
-    def delete(self, theme : Theme) -> bool:
+    async def delete(self, theme : Theme) -> bool:
+        """An abstract method that deletes theme"""
+        
         pass
 
 
 class AbstractResolutionRepository(ABC):
-    """Abstract respository pattern class for models.resolution.Reslution"""
+    """An abstract respository pattern class for models.resolution.Reslution"""
 
     @abstractmethod
-    def add(self, resolution : Resolution) -> bool:
+    async def add(self, resolution : Resolution) -> bool:
+        """An abstract method that adds resolution"""
+
         pass
 
     @abstractmethod
-    def update(self, resolution : Resolution) -> bool:
+    async def update(self, resolution : Resolution) -> bool:
+        """An abstract method that updates resolution by id : ObjectId"""
+
         pass
 
     @abstractmethod
-    def get_skip_limit(self, skip : int, limit : int) -> Iterable[Resolution]:
+    async def get_skip_limit(self, skip : int, limit : int) -> Iterable[Resolution]:
+        """An abstract method that gives limit resolutions starts with skip"""
+
         pass
 
     @abstractmethod
-    def get_by_theme_skip_limit(self, theme : List[str], count : int, skip : int) -> Iterable[Resolution]:
+    async def get_by_theme_skip_limit(
+        self, theme : List[str], count : int, skip : int
+        ) -> Iterable[Resolution]:
+        """An abstract method that givets limit resolution with theme start with skip"""
+
         pass
     
     @abstractmethod
     async def get_by_title(self, title : str) -> Iterable[Resolution]:
+        """An abstract method that gives a resolution by title"""
+
         pass
 
     @abstractmethod
-    def get_one(self, id : ObjectId) -> Resolution:
+    async def get_one(self, object_id : ObjectId) -> Resolution:
+        """An abstract method that gives a resolutin by id : ObjectId"""
+
         pass
 
     @abstractmethod
-    def delete(self, id : ObjectId) -> bool:
+    async def delete(self, object_id : ObjectId) -> bool:
+        """An abstract method that delets a resolution by id : ObjectId"""
+
         pass
 
     @abstractmethod
-    def delete_theme(self, theme : str, id : ObjectId) -> bool:
+    async def delete_theme(self, theme : str, object_id : ObjectId) -> bool:
+        """An abstract method that deletes theme from a resolution 
+        by the theme name and resolution id : ObjectID"""
+
         pass
