@@ -34,7 +34,7 @@ class ThemeRepository(AbstractThemeRepository):
 
         return result
 
-    async def delete(self, id: str) -> bool:
-        result = await self.collection.delete_one({"_id": id})
+    async def delete(self, theme: str) -> bool:
+        result = await self.collection.delete_one({"theme": theme})
 
         return result.acknowledged

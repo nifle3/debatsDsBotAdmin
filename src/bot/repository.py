@@ -63,7 +63,7 @@ class AbstractResolutionRepository(ABC):
 
     @abstractmethod
     async def get_by_theme_skip_limit(
-        self, theme : List[str], count : int, skip : int
+        self, theme : List[str], skip : int, limit : int
         ) -> Iterable[Resolution]:
         """An abstract method that givets limit resolution with theme start with skip"""
 
