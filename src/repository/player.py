@@ -34,5 +34,5 @@ class PlayerRepository(AbstractPlayerRepository):
 
     async def delete(self, discord_id: str) -> bool:
         result = await self.collection.delete_one({"discord_id" : discord_id})
-        
+
         return result.acknowledged

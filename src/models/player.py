@@ -39,6 +39,7 @@ class Player:
         return Player(
             id=doc["_id"],
             name=doc["name"],
+            dicord_id=doc["dicord_id"],
             play_count=doc["play_count"],
             first_place_count=doc["first_place_count"],
             points=doc["first_place_count"],

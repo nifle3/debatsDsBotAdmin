@@ -27,7 +27,7 @@ class Resolution:
             "opposition_wins": self.opposition_wins,
             "proopposition_wins": self.proopposition_wins
         }
-    
+
     @staticmethod
     def from_document(doc : Dict[str, any]):
         """

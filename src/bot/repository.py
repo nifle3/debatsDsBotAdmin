@@ -42,7 +42,7 @@ class AbstractThemeRepository(ABC):
         """An abstract method that gets all themes"""
 
     @abstractmethod
-    async def delete(self, theme : Theme) -> bool:
+    async def delete(self, theme : str) -> bool:
         """An abstract method that deletes theme"""
 
 
